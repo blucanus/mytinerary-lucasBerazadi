@@ -1,10 +1,11 @@
 import React from 'react'
-import Navbar from '../Navbar'
+import NavTop from '../NavTop'
 import './style.css'
+
 
 function Header() {
   return (
-    <Navbar />    
+    <NavTop />    
   )
 }
 export default Header

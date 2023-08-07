@@ -1,13 +1,14 @@
 import React from 'react'
 import './style.css'
 
-export default function Article({titleArticle, textArticle}) {
+function Article({title, text}) {
   return (
     <>
         <article>
-            <h3>{titleArticle}</h3>
-            <p>{textArticle}</p>
+            <h3>{title}</h3>
+            <p>{text}</p>
         </article>
     </>
   )
 }
+export default Article

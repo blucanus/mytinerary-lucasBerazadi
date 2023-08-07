@@ -4,7 +4,11 @@ import './style.css'
 function Footer() {
   return (
     <footer>
-        <p>Copyright &copy; </p>
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <div className="container text-center">
+          <p>Copyright &copy; </p>
+        </div>
+      </nav>       
     </footer>
   )
 }
