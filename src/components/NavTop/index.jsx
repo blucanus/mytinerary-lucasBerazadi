@@ -14,11 +14,11 @@ function NavTop() {
     ]
   return (
 
-    <Navbar fixed="top" expand="lg" className="bg-body-tertiary">
+    <Navbar fixed="top" expand="lg" className="nav-mytinerary">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home"><img src="/logo-home.svg" className='img-responsive' /></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav" className='d-flex flex-grow-0'>
           <Nav className="me-auto">
             {data.map((each, key)=><Anchor key={key} href={each.href} title={each.title} />)} 
           </Nav>
