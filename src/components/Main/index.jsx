@@ -1,19 +1,20 @@
 import React from 'react'
-import Article from '../Article'
 import './style.css'
+import Steper from '../Steper'
 
 
 function Main() {
     let dataArticle = [
-        {titleArt:'Titulo 1', textArt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut fugit quas enim sequi asperiores illum saepe quisquam consectetur optio ad alias, corporis, atque, architecto ipsum deserunt facere eos sapiente. Saepe.'},
-        {titleArt:'Titulo 2', textArt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut fugit quas enim sequi asperiores illum saepe quisquam consectetur optio ad alias, corporis, atque, architecto ipsum deserunt facere eos sapiente. Saepe.'},
-        {titleArt:'Titulo 3', textArt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut fugit quas enim sequi asperiores illum saepe quisquam consectetur optio ad alias, corporis, atque, architecto ipsum deserunt facere eos sapiente. Saepe.'}
+        {id:1, titleArt:'Esquel', textArt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut fugit quas enim sequi asperiores illum saepe quisquam consectetur optio ad alias, corporis, atque, architecto ipsum deserunt facere eos sapiente. Saepe.', imageArt:'esquel.png', urlArt:''},
+        {id:2, titleArt:'Corcovado', textArt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut fugit quas enim sequi asperiores illum saepe quisquam consectetur optio ad alias, corporis, atque, architecto ipsum deserunt facere eos sapiente. Saepe.', imageArt:'corcovado.png', urlArt:''},
+        {id:3, titleArt:'El Hoyo', textArt:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut fugit quas enim sequi asperiores illum saepe quisquam consectetur optio ad alias, corporis, atque, architecto ipsum deserunt facere eos sapiente. Saepe.', imageArt:'elhoyo.png', urlArt:''}
     ]
-  return (
+    return (
         <div className="container mt-5">
             <div className="row">
                 <div className="col">
-                    { dataArticle.map((each, key)=><Article key={key} title={each.titleArt} text={each.textArt}/>)}
+                    {/* { dataArticle.map((each, key)=><Article key={key} each={each}/>)} */}
+                    <Steper dataArticle={dataArticle}/>
                 </div>
             </div>
         </div>
