@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Article from '../Article'
 
 
@@ -11,6 +11,12 @@ function Steper({dataArticle}) {
   let handlerForward = ()=> {
     setStep((step+1) % dataArticle.length)
   }
+
+/*   useEffect(()=> {
+    setInterval(()=> {
+        handlerForward()
+    }, 5000);
+  },[]); */
 
   return (
     <div className="slide">
