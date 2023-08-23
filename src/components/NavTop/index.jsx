@@ -14,7 +14,7 @@ function NavTop() {
     ]
   return (
 
-    <Navbar fixed="top" expand="lg" className="nav-mytinerary">
+    <Navbar sticky="top" expand="lg" className="nav-mytinerary">
       <Container>
         <Navbar.Brand href="#home"><img src="/logo-home.svg" className='img-responsive' /></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

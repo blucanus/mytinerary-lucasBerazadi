@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { Outlet } from 'react-router-dom'
@@ -8,10 +9,10 @@ function Layout() {
     <>
         <Header />
           <div className="container"  >
-            <div className="row">
-              <div className="col mt-5">
+            <div className="row main-principal">
+              
                 <Outlet />
-              </div>
+              
             </div>
           </div>
         <Footer />

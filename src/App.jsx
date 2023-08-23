@@ -5,12 +5,19 @@ import Home from './pages/Home'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Cities from './pages/Cities'
+import CityDetails from './components/City'
 
 const router = createBrowserRouter([
   { path: '/', element:<Layout />,
     children:[
       { path: '/', element:<Home />},
       {path: '/cities', element: <Cities />}
+    ]
+  },
+  {
+    path: '/cities', element: <Layout />,
+    children: [
+      {path: '/cities/:id', element: <CityDetails/>}
     ]
   }
 /*   {path: '/cities/:id', element: <Cities />}

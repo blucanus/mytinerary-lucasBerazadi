@@ -5,7 +5,9 @@ import './style.css'
 
 function Header() {
   return (
-    <NavTop />    
+    <header className="mb-5">
+      <NavTop />  
+    </header>
   )
 }
 export default Header
