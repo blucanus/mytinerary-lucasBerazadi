@@ -7,7 +7,7 @@ function Anchor({href, title}) {
 
   return (
     <>  
-      <AnchorLink to={href}>{title}</AnchorLink>
+      <AnchorLink className='nav-link' to={href}>{title}</AnchorLink>
     </>
   )
 }

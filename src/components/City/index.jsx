@@ -1,19 +1,27 @@
 import React, { useEffect, useState } from 'react'
-import { getCity } from '../Services/citiesQueries'
+import { getCity, getIntineraryByCitiId } from '../Services/citiesQueries'
 import { useParams } from 'react-router-dom'
 
 
 export const CityDetails = () => {
     
     const [city, setCity] = useState({})
+    const [itinerary, setItinerary] = useState({})
     const {id} = useParams()
+
     useEffect(()=> {
         getCity(id)
             .then((data) => setCity(data))                      
             .catch((err) => console.log(err))          
             
     }, [id])
-    console.log(city); 
+
+    useEffect(()=> {
+      getIntineraryByCityId(id)
+        .then((dataItinerary) => setItinerary(dataItinerary))                      
+        .catch((err) => console.log(err))  
+    },[])
+    console.log(dataItinerary); 
 
   return (
     <div className="card">

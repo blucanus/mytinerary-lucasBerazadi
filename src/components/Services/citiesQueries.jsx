@@ -15,9 +15,17 @@ export const getAllCities = async() => {
 export const getCity = async(id) => {
     try {
         const {data} = await cities("api/cities/"+id)
-        console.log(data);
         return data
         
+    }catch(err){
+        return[]
+    }  
+}
+export const getIntineraryByCityId = async(id) => {
+    try {
+        const {dataItinerary} = await cities("api/itinerary"+id)
+        return dataItinerary
+
     }catch(err){
         return[]
     }  
