@@ -1,21 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import { getAllCities } from '../Services/citiesQueries'
 import CitiesCard from '../CitiesCard'
+import { useSelector, useDispatch } from 'react-redux'
+import { loadCities } from '../../redux/actions/citiesActions.js'
 
 function AllCities() {
 
-    const [cities, setCities] = useState([])
+    const citiesStore = useSelector((store) => store.cities)
+
+    const dispatch = useDispatch()
+
+    //const [cities, setCities] = useState([])
     useEffect(()=> {
-        getAllCities()
+        getAllCities().then(cities => dispatch(loadCities(cities)))
+       /*  getAllCities()
             .then((data) => setCities(data))            
-            .catch((err) => console.log(err))
+            .catch((err) => console.log(err)) */
             
     }, [])
     
 
     return (
        <>
-         {cities.map((city) =>(
+         {citiesStore.filteredCities.map((city) =>(
                 <CitiesCard key={city._id} infoCity={city} />
            ))}
        </>
