@@ -9,7 +9,7 @@ function CitiesCard({infoCity}) {
             <div className="card-body">
                 <h2 className="card-title">{infoCity.name}</h2>
                 <h5 className="card-text">{infoCity.state}</h5>
-                <h4 className="card-text">{infoCity.interestPoint}</h4>
+               {/*  <h4 className="card-text">{infoCity.interestPoint}</h4> */}
                 <AnchorLink to={`/cities/${infoCity._id}`} className='btn'>Details</AnchorLink>
             </div>    
         </div>       

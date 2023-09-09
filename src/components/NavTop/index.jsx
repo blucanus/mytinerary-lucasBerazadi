@@ -1,30 +1,50 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Anchor from '../Anchor'
 import './style.css'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+
 
 
 function NavTop() {
+    //const toggleMenu = () => document.body.classList.toggle("open");
+    /* const [open, setOpen] = useState(false)
+    function toggleMenu() {
+      setOpen(open ? false : true)
+    }  */
+    /* useEffect (() => {
+        body.classList.toggle("close")
+    }, []) */
+
     let data = [
         {href:'/',title:'Home'},
         {href:'cities',title:'Cities'},
         {href:'login',title:'Login'}
     ]
   return (
+    <>
 
-    <Navbar sticky="top" expand="lg" className="nav-mytinerary">
-      <Container>
-        <Navbar.Brand href="#home"><img src="/logo-home.svg" className='img-responsive' /></Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className='d-flex flex-grow-0'>
-          <Nav className="me-auto">
+    {/* <button className="burger" onClick={toggleMenu}></button>
+    { open && 
+    <> */}
+   {/*  <div className="background"></div> */}
+    <nav className="navbar navbar-expand-lg nav-mytinerary">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="#">
+          <img src={`../logo.svg`} alt="" />
+        </a>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className='collapse navbar-collapse' id="menu">
+          <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
             {data.map((each, key)=><Anchor key={key} href={each.href} title={each.title} />)} 
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+          </ul>
+        </div>
+      </div>
+    </nav>
+ {/*    </>
+    } */}
+    
+    </>
   )
 }
 
