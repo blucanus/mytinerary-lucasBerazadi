@@ -71,7 +71,7 @@ function Main() {
           className="bg"
           style={{ backgroundImage: `url(puerto-madryn.jpg)` }}
         />
-        <h1>Nice, right?</h1>
+        <h1 className="text-white">Nice, right?</h1>
       </section>
     </>
   );
