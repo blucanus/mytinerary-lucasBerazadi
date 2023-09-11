@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link as AnchorLink } from 'react-router-dom'
+import "./style.css";
+
 
 function CitiesCard({infoCity}) {
   return (
@@ -10,7 +12,7 @@ function CitiesCard({infoCity}) {
                 <h2 className="card-title">{infoCity.name}</h2>
                 <h5 className="card-text">{infoCity.state}</h5>
                {/*  <h4 className="card-text">{infoCity.interestPoint}</h4> */}
-                <AnchorLink to={`/cities/${infoCity._id}`} className='btn'>Details</AnchorLink>
+                <AnchorLink to={`/cities/${infoCity._id}`} className='btn btn-outline-dark'>Details</AnchorLink>
             </div>    
         </div>       
     </div>

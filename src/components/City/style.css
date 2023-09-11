@@ -1,4 +1,41 @@
-.itinerary-card {
-    width: 33%;
-    display: flex;
+.card-overlay {
+    width: 50%;
+    background: #fff;
+    position: absolute;
+    right: 0 !important;
+    bottom: 0 !important;
+}
+.itinerary-card .card-body {
+    padding: 0.5rem;
+}
+.itinerary-card h5.card-title {
+    font-size: 1rem;
+}
+.itinerary-card p {
+    font-size: 15px;
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .card-overlay .card-title {
+        font-size: 1.5rem;
+    }
+    .itinerary-card .card-body {
+        padding: 0.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-overlay {
+        width: 100%;
+        position: initial;
+    }
+    .card-img {
+        border-radius: 0.25rem 0.25rem 0 0 !important;
+    }
+    .itinerary-card h5.card-title {
+        font-size: 1.25rem;
+    }
+    .itinerary-card p {
+        font-size: 1rem;
+    }
+
 }
