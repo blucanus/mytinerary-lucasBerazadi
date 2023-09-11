@@ -4,14 +4,17 @@ const conect = axios.create({
     baseURL: 'http://localhost:3000'
 })
 
-export const getAllCities = async() => {
+export const getAllCities = async(queryParams="") => {
     try {
-        const {data} = await conect("api/cities")
+        console.log(queryParams);
+        const {data} = await conect("api/cities/"+queryParams)
+        
         return data
     }catch(err){
         return[]
     }  
 }
+
 export const getCity = async(id) => {
     try {
         const {data} = await conect("api/cities/"+id)
@@ -22,15 +25,3 @@ export const getCity = async(id) => {
         return[]
     }  
 }
-/* export const getItineraryByCityId = async(id) => {
-    try {
-        
-        const {data} = await conect("api/itinerary/"+id) 
-        //console.log(data);
-        return data
-        
-
-    }catch(err){
-        return[]
-    }  
-} */

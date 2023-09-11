@@ -6,3 +6,10 @@ export const loadCities = createAction( 'load_cities', (cities) => {
         
     }
 })
+export const citiesFilter = createAction( 'load_cities_filtered', ( search ) => {
+    return {
+        payload : {
+            inputValue : search
+        }
+    }
+} )

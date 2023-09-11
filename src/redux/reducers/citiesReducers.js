@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { loadCities } from "../actions/citiesActions";
+import { citiesFilter, loadCities } from "../actions/citiesActions";
 
 const initialState = {
     allCities: [],
@@ -20,8 +20,15 @@ const citiesReducer = createReducer (initialState, (builder) =>
                 filteredCities: action.payload
             }
         })
-        /* .addCase()
-        .addCase() */
+        .addCase( citiesFilter, ( stateActual, action ) => {
+            const filteredSearch = stateActual.allCities.filter( city => city.name.toLowerCase().includes( action.payload.inputValue )  )
+            let newFilteredCities = filteredSearch
+            return {
+                ...stateActual,
+                filteredCities : newFilteredCities
+            }
+        } ) 
+
 )
 
 export default citiesReducer
