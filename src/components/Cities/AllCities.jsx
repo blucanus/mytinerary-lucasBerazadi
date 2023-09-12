@@ -18,7 +18,7 @@ function AllCities() {
   }, []);
     const handleInput = () => {
         const search = inputSearch.current.value
-        let query = '?name='+ search
+        let query = search
         dispatch(citiesFilter(query))
     }
   
