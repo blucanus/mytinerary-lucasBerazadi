@@ -5,6 +5,8 @@ import Col from "react-bootstrap/Col";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { signUp } from "../redux/actions/userAction";
+import { GoogleLogin } from '@react-oauth/google';
+import jwtDecode from 'jwt-decode'
 
 
 export const SignUp = () => {
@@ -41,6 +43,17 @@ export const SignUp = () => {
             dispatch(signUp(body));
         }
     }
+    const signUpWhitGoogle =(credentialResponse) => {
+        const dataUser = jwtDecode(credentialResponse.credential)
+        const body = {
+            name : dataUser.name,
+            email : dataUser.email,
+            password : dataUser.given_name + dataUser.sub,
+            image : dataUser.picture
+        }
+        console.log(body);
+        dispatch(signUp(body));
+    }
 
   return (
     <Col sm={12} md={{span:8, offset: 2}}>
@@ -71,6 +84,11 @@ export const SignUp = () => {
         <Button type="submit">
             Submit
         </Button>
+        <GoogleLogin
+            onSuccess={signUpWhitGoogle}
+            onError={() => {
+                console.log("Login Failed");        
+            }}/>
         </Form>
     </Col>
   );

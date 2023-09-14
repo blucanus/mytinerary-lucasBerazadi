@@ -5,6 +5,8 @@ import Col from "react-bootstrap/Col";
 import { signIn } from "../redux/actions/userAction";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
+import jwtDecode from "jwt-decode";
 
 
 export const Signin = () => {
@@ -31,7 +33,19 @@ export const Signin = () => {
             })
         }
     }
-
+    const signInWithGoogle = (credentialResponse) => {
+        const userData = jwtDecode(credentialResponse.credential);
+        const body = {
+          email: userData.email,
+          password: userData.given_name + userData.sub,
+        };
+        dispatch(signIn(body)).then((respuestaDelAction) => {
+          if (respuestaDelAction.payload.success) {
+            alert("Bienvenido " + respuestaDelAction.payload.user.name);
+            navigate("/")
+          }
+        })
+      }
   return (
     <Col sm={12} md={{ span: 8, offset: 2 }}>
       <Form onSubmit={handleSubmit}>
@@ -49,6 +63,13 @@ export const Signin = () => {
         <Button variant="primary" type="submit">
           Log In
         </Button>
+        <GoogleLogin
+            text="signin_with"
+            onSuccess={signInWithGoogle}
+            onError={() => {
+              console.log("Login Failed");
+            }}
+          />
       </Form>
     </Col>
   );
