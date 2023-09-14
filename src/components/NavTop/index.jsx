@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Anchor from '../Anchor'
+import { Link as AnchorLink } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { logOut } from '../../redux/actions/userAction';
 import './style.css'
 
 function NavTop() {
@@ -11,13 +13,13 @@ function NavTop() {
     /* useEffect (() => {
         body.classList.toggle("close")
     }, []) */
-    const menuItems = [
-        {href:'/',title:'Home'},
-        {href:'cities',title:'Cities'},
-        {href:'login',title:'Login'}
-    ]
+
+    const user = useSelector(store => store.user.user)
+
     const [isOpen, setIsOpen] = useState(false);
     const toggleSidebar = () => setIsOpen(!isOpen);
+
+    const dispatch = useDispatch()
 
   return (
     <>
@@ -30,7 +32,20 @@ function NavTop() {
         </button>
         <img src={`../logo.svg`} />
         <nav className="text-center text-white">
-        {menuItems.map((each, key)=><Anchor key={key} href={each.href} title={each.title} />)} 
+        <AnchorLink className='nav-link' to="/">Home</AnchorLink>
+        <AnchorLink className='nav-link' to="/cities">Cities</AnchorLink>
+        {
+          user ? (
+            <AnchorLink className='nav-link' onClick={ () => dispatch(logOut())}>Log Out</AnchorLink>
+          ) :
+          (
+            <>
+            <AnchorLink className='nav-link' to="/signup">Sign Up</AnchorLink>
+            <AnchorLink className='nav-link' to="/signin">Sign In</AnchorLink>
+            </>
+          )
+        }
+       
         </nav>
       </aside>
       <div className="sidebar-border" />    
